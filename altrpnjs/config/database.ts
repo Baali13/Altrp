@@ -50,7 +50,33 @@ const databaseConfig: DatabaseConfig = {
       healthCheck: false,
       debug: false,
     },
-
+    /*
+    |--------------------------------------------------------------------------
+    | PostgreSQL config
+    |--------------------------------------------------------------------------
+    |
+    | Configuration for postgreSQL database. Make sure to install the driver
+    | from npm when using this connection
+    |
+    | npm i pg
+    |
+    */
+    pg: {
+      client: 'pg',
+      connection: {
+        host: Env.get('DB_HOST'),
+        port: Env.get('DB_PORT'),
+        user: Env.get('DB_USERNAME'),
+        password: Env.get('DB_PASSWORD', ''),
+        database: Env.get('DB_DATABASE'),
+        ssl: false
+      },
+      migrations: {
+        naturalSort: true,
+      },
+      healthCheck: false,
+      debug: false,
+    }
   }
 }
 
