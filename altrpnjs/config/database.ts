@@ -36,13 +36,11 @@ const databaseConfig: DatabaseConfig = {
     mysql: {
       client: 'mysql',
       connection: {
-
-        charset: Env.get('DB_CHARSET'),
-        host: Env.get('DB_HOST'),
-        port: Env.get('DB_PORT'),
-        user: Env.get('DB_USERNAME'),
-        password: Env.get('DB_PASSWORD', ''),
-        database: Env.get('DB_DATABASE'),
+        host: Env.get('MYSQL_HOST'),
+        port: Env.get('MYSQL_PORT'),
+        user: Env.get('MYSQL_USER'),
+        password: Env.get('MYSQL_PASSWORD', ''),
+        database: Env.get('MYSQL_DB_NAME'),
       },
       migrations: {
         naturalSort: true,
@@ -50,12 +48,13 @@ const databaseConfig: DatabaseConfig = {
       healthCheck: false,
       debug: false,
     },
+
     /*
     |--------------------------------------------------------------------------
     | PostgreSQL config
     |--------------------------------------------------------------------------
     |
-    | Configuration for postgreSQL database. Make sure to install the driver
+    | Configuration for PostgreSQL database. Make sure to install the driver
     | from npm when using this connection
     |
     | npm i pg
@@ -64,19 +63,19 @@ const databaseConfig: DatabaseConfig = {
     pg: {
       client: 'pg',
       connection: {
-        host: Env.get('DB_HOST'),
-        port: Env.get('DB_PORT'),
-        user: Env.get('DB_USERNAME'),
-        password: Env.get('DB_PASSWORD', ''),
-        database: Env.get('DB_DATABASE'),
-        ssl: false
+        host: Env.get('PG_HOST'),
+        port: Env.get('PG_PORT'),
+        user: Env.get('PG_USER'),
+        password: Env.get('PG_PASSWORD', ''),
+        database: Env.get('PG_DB_NAME'),
       },
       migrations: {
         naturalSort: true,
       },
       healthCheck: false,
       debug: false,
-    }
+    },
+
   }
 }
 
